@@ -1,0 +1,98 @@
+<!-- Grid row -->
+<div class="container mt-5">
+
+    <div class="row">
+
+
+        <div class="col-md-9 mb-4 color-block purple-gradient z-depth-2 ">
+            <div class="" *ngFor="let todo of toDoLists">
+
+                <app-todolist [value]="todo" (todoDeleteEvent)="deleteTodo(todo)"></app-todolist>
+            </div>
+            <div class="text-center mb-3">
+                <button class="btn peach-gradient" mdbBtn color="info" class="waves-effect mb-4" (click)="frame.show()" mdbWavesEffect>Add Task</button>
+            </div>
+
+        </div>
+        <div class="col-md-3">
+            <div class="row">
+                <div class="col-md-12 text-center">
+                    <h3>Upcoming Event</h3>
+                </div>
+            </div>
+            <div class="row">
+
+                <div class="col-md-12 text-center">
+                    <p>pm meets </p>
+                    <p>Gaurav Khnadelwal </p>
+
+                    <p>next week</p>
+                </div>
+            </div>
+            <div class="row">
+
+                <div class="col-md-12 text-center">
+                    <p>xyx is going </p>
+                    <p>reodar sirohi </p>
+
+                    <p>next week</p>
+                </div>
+            </div>
+        </div>
+
+    </div>
+
+
+</div>
+<!--Modal-->
+<div mdbModal #frame="mdbModal" class="modal fade top" id="frameModalTop" tabindex="-1" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true" style="overflow-y: auto">
+    <!--Dialog-->
+    <div class="modal-dialog modal-notify modal-info" role="document">
+        <!--Content-->
+        <div class="modal-content">
+            <!--Header-->
+            <div class="modal-header text-center">
+                <h4 class="modal-title white-text w-100 font-weight-bold py-2">
+                    Add Task
+                </h4>
+                <button type="button" class="close" data-dismiss="modal" aria-label="Close" (click)="frame.hide()">
+<span aria-hidden="true" class="white-text">&times;</span>
+</button>
+            </div>
+            <div class="modal-body">
+                <div class="md-form mb-5">
+
+                    <i class="far fa-calendar-alt"></i> <input type="date" id="time" class="form-control" placeholder="Date" mdbInput [formControl]="dateInput" />
+
+                </div>
+                <div class="md-form mb-5">
+
+                    <i class="far fa-clock"></i> <input type="text" id="time" class="form-control" placeholder="Time" mdbInput [formControl]="timeInput" />
+
+                </div>
+                <div class="md-form mb-5">
+
+                    <i class="fas fa-tasks"></i> <input type="text" id="time" class="form-control" placeholder="Task" mdbInput [formControl]="taskInput" />
+
+                </div>
+                <div class="md-form mb-5">
+
+                    <i class="fas fa-user-secret"></i> <input type="text" id="time" class="form-control" placeholder="DoneBy" mdbInput [formControl]="userInput" />
+
+                </div>
+            </div>
+
+
+            <!--Footer-->
+            <div class="modal-footer justify-content-center">
+                <button type="button" mdbBtn color="info" (click)="addTodo()" class="waves-effect" mdbWavesEffect>
+Add
+</button>
+            </div>
+            <!--Footer-->
+        </div>
+        <!--/.Content-->
+    </div>
+    <!--/.Dialog-->
+</div>
+<!--/.Modal-->
